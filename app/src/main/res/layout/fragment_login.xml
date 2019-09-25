@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.cardata.main.MainActivityViewModel" />
+
+        <import type="com.example.cardata.main.FieldStatus" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        tools:context=".main.MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={model.credentials.email}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_valid_email"
+            android:visibility="@{model.credentials.emailStatus == FieldStatus.INVALID ? View.VISIBLE : View.INVISIBLE}"
+            tools:visibility="visible" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="@={model.credentials.password}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_valid_password"
+            android:visibility="@{model.credentials.passwordStatus == FieldStatus.INVALID ? View.VISIBLE : View.INVISIBLE}"
+            tools:visibility="visible" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:enabled="@{model.credentials.emailStatus != FieldStatus.INVALID &amp;&amp; model.credentials.passwordStatus != FieldStatus.INVALID}"
+            android:onClick="@{() -> model.performLogin()}"
+            android:text="@string/login" />
+
+    </LinearLayout>
+</layout>

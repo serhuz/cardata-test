@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.cardata.main.list.ClickListener" />
+
+        <variable
+            name="info"
+            type="com.example.cardata.main.list.network.CarInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{info.enabled() ? @color/transparent : @color/red_50}"
+        android:onClick="@{() -> listener.onClick(info)}"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        app:enabled="@{info.enabled()}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/car_id(info.id)}"
+            tools:text="abc123" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/car_imei(info.imei)}"
+            tools:text="123456" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/car_make(info.manufacturer)}"
+            tools:text="Daewoo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/car_model(info.model)}"
+            tools:text="Lanos" />
+
+    </LinearLayout>
+</layout>

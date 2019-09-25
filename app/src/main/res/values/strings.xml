@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Car Data</string>
+    <string name="enter_valid_email">Please, enter a valid email</string>
+    <string name="enter_valid_password">Password should be at least 8 characters long</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="car_id">ID: %s</string>
+    <string name="car_imei">IMEI: %s</string>
+    <string name="car_make">Manufacturer: %s</string>
+    <string name="car_model">Model: %s</string>
+    <string name="update_state_error">Could not update state</string>
+    <string name="load_car_list_error">Error loading data</string>
+    <string name="car_state">State: %s</string>
+    <string name="car_fuel">Fuel: %1$.2f  %2$d</string>
+</resources>
